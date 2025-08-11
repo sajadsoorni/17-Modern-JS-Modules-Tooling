@@ -76,7 +76,8 @@ shoppingCart2.addToCart('pizza', 2);
 console.log(shoppingCart2);
 console.log(shoppingCart2.shippingCost);
 */
-
+/*
+// 287. CommonJS Modules
 // Export
 exports.addToCart = function (product, quantity) {
   cart.push({ product, quantity });
@@ -87,3 +88,22 @@ exports.addToCart = function (product, quantity) {
 
 // Import
 const { addToCart } = require('./shoppingCart.js');
+*/
+
+import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+
+const state = {
+  car: [
+    { product: 'bread', quantity: 5 },
+    { product: 'PIZZA', quantity: 5 },
+  ],
+  user: { loggedIn: true },
+};
+
+const stateClone = Object.assign({}, state);
+const stateDeepClone = cloneDeep(state);
+
+state.user.loggedIn = false;
+console.log(stateClone);
+
+console.log(stateDeepClone);
